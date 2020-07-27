@@ -179,10 +179,10 @@ class Argument {
 
 			// Prompt the user for a new value
 			prompts.push(await msg.reply(stripIndents`
-				${empty ? this.prompt : valid ? valid : `You provided an invalid ${this.label}. Please try again.`}
+				${empty ? this.prompt : valid ? valid : `Invalid ${this.label}. Please try again.`}
 				${oneLine`
-					Respond with \`cancel\` to cancel the command.
-					${wait ? `The command will automatically be cancelled in ${this.wait} seconds.` : ''}
+					Say \`cancel\` to cancel the command.
+					${wait ? `The command will be cancelled in ${this.wait} seconds.` : ''}
 				`}
 			`));
 
@@ -265,13 +265,13 @@ class Argument {
 					const escaped = escapeMarkdown(val).replace(/@/g, '@\u200b');
 					prompts.push(await msg.reply(stripIndents`
 						${valid ? valid : oneLine`
-							You provided an invalid ${this.label},
+							Invalid ${this.label},
 							"${escaped.length < 1850 ? escaped : '[too long to show]'}".
 							Please try again.
 						`}
 						${oneLine`
 							Respond with \`cancel\` to cancel the command, or \`finish\` to finish entry up to this point.
-							${wait ? `The command will automatically be cancelled in ${this.wait} seconds.` : ''}
+							${wait ? `The command will be cancelled in ${this.wait} seconds.` : ''}
 						`}
 					`));
 				} else if(results.length === 0) {
@@ -279,7 +279,7 @@ class Argument {
 						${this.prompt}
 						${oneLine`
 							Respond with \`cancel\` to cancel the command, or \`finish\` to finish entry.
-							${wait ? `The command will automatically be cancelled in ${this.wait} seconds, unless you respond.` : ''}
+							${wait ? `The command will be cancelled in ${this.wait} seconds unless you respond.` : ''}
 						`}
 					`));
 				}

@@ -252,17 +252,17 @@ class Command {
 		if(ownerOverride && this.client.isOwner(message.author)) return true;
 
 		if(this.ownerOnly && (ownerOverride || !this.client.isOwner(message.author))) {
-			return `The \`${this.name}\` command can only be used by the bot owner.`;
+			return `\`${this.name}\` can only be used by the bot owner.`;
 		}
 
 		if(message.channel.type === 'text' && this.userPermissions) {
 			const missing = message.channel.permissionsFor(message.author).missing(this.userPermissions);
 			if(missing.length > 0) {
 				if(missing.length === 1) {
-					return `The \`${this.name}\` command requires you to have the "${permissions[missing[0]]}" permission.`;
+					return `\`${this.name}\` requires the "${permissions[missing[0]]}" permission.`;
 				}
 				return oneLine`
-					The \`${this.name}\` command requires you to have the following permissions:
+					\`${this.name}\` requires the following permissions:
 					${missing.map(perm => permissions[perm]).join(', ')}
 				`;
 			}
@@ -304,9 +304,9 @@ class Command {
 	onBlock(message, reason, data) {
 		switch(reason) {
 			case 'guildOnly':
-				return message.reply(`The \`${this.name}\` command must be used in a server channel.`);
+				return message.reply(`\`${this.name}\` must be called in a server channel.`);
 			case 'nsfw':
-				return message.reply(`The \`${this.name}\` command can only be used in NSFW channels.`);
+				return message.reply(`\`${this.name}\` can only be called in NSFW channels.`);
 			case 'permission': {
 				if(data.response) return message.reply(data.response);
 				return message.reply(`You do not have permission to use the \`${this.name}\` command.`);
@@ -324,7 +324,7 @@ class Command {
 			}
 			case 'throttling': {
 				return message.reply(
-					`You may not use the \`${this.name}\` command again for another ${data.remaining.toFixed(1)} seconds.`
+					`You have to wait ${data.remaining.toFixed(1)} seconds until retrying the command \`${this.name}\`.`
 				);
 			}
 			default:

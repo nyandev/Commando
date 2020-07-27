@@ -20,7 +20,7 @@ module.exports = class HelpCommand extends Command {
 			args: [
 				{
 					key: 'command',
-					prompt: 'Which command would you like to view the help for?',
+					prompt: 'Which command would you like to get help for?',
 					type: 'string',
 					default: ''
 				}
