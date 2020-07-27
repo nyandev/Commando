@@ -16,12 +16,6 @@ module.exports = {
 	version: require('../package').version,
 
 	SettingProvider: require('./providers/base'),
-	get SQLiteProvider() {
-		return require('./providers/sqlite');
-	},
-	get SyncSQLiteProvider() {
-		return require('./providers/sqlite-sync');
-	}
 };
 
 /**
