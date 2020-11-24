@@ -157,7 +157,7 @@ module.exports = Structures.extend('Message', Message => {
 			}
 
 			// Ensure the user has permission to use the command
-			const hasPermission = this.command.hasPermission(this);
+			const hasPermission = await this.command.hasPermission(this);
 			if(!hasPermission || typeof hasPermission === 'string') {
 				const data = { response: typeof hasPermission === 'string' ? hasPermission : undefined };
 				this.client.emit('commandBlock', this, 'permission', data);

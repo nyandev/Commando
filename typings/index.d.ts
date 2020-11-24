@@ -368,50 +368,6 @@ declare module 'discord.js-commando' {
 		public set(guild: Guild | string, key: string, val: any): Promise<any>;
 	}
 
-	export class SQLiteProvider extends SettingProvider {
-		public constructor(db: any | Promise<any>);
-
-		public readonly client: CommandoClient;
-		public db: any;
-		private deleteStmt: any;
-		private insertOrReplaceStmt: any;
-		private listeners: Map<any, any>;
-		private settings: Map<any, any>;
-
-		public clear(guild: Guild | string): Promise<void>;
-		public destroy(): Promise<void>;
-		public get(guild: Guild | string, key: string, defVal?: any): any;
-		public init(client: CommandoClient): Promise<void>;
-		public remove(guild: Guild | string, key: string): Promise<any>;
-		public set(guild: Guild | string, key: string, val: any): Promise<any>;
-		private setupGuild(guild: string, settings: {}): void;
-		private setupGuildCommand(guild: CommandoGuild, command: Command, settings: {}): void;
-		private setupGuildGroup(guild: CommandoGuild, group: CommandGroup, settings: {}): void;
-		private updateOtherShards(key: string, val: any): void;
-	}
-
-	export class SyncSQLiteProvider extends SettingProvider {
-		public constructor(db: any | Promise<any>);
-
-		public readonly client: CommandoClient;
-		public db: any;
-		private deleteStmt: any;
-		private insertOrReplaceStmt: any;
-		private listeners: Map<any, any>;
-		private settings: Map<any, any>;
-
-		public clear(guild: Guild | string): Promise<void>;
-		public destroy(): Promise<void>;
-		public get(guild: Guild | string, key: string, defVal?: any): any;
-		public init(client: CommandoClient): Promise<void>;
-		public remove(guild: Guild | string, key: string): Promise<any>;
-		public set(guild: Guild | string, key: string, val: any): Promise<any>;
-		private setupGuild(guild: string, settings: {}): void;
-		private setupGuildCommand(guild: CommandoGuild, command: Command, settings: {}): void;
-		private setupGuildGroup(guild: CommandoGuild, group: CommandGroup, settings: {}): void;
-		private updateOtherShards(key: string, val: any): void;
-	}
-
 	export class util {
 		public static disambiguation(items: any[], label: string, property?: string): string;
 		public static paginate<T>(items: T[], page?: number, pageLength?: number): {
