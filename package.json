@@ -1,16 +1,16 @@
 {
 	"name": "discord.js-commando",
 	"version": "0.11.0-dev",
-	"description": "The official command framework for Discord.js [FORK]",
+	"description": "FORK OF The official command framework for Discord.js",
 	"license": "Apache-2.0",
 	"author": "Schuyler Cebulskie <Gawdl3y@gawdl3y.com> (https://gawdl3y.com/)",
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pantsudev/Commando.git"
+		"url": "https://github.com/nyandev/Commando.git"
 	},
 	"bugs": {
-		"url": "https://github.com/pantsudev/Commando/issues"
+		"url": "https://github.com/nyandev/Commando/issues"
 	},
 	"keywords": [
 		"discord",
