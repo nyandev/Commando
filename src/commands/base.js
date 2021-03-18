@@ -351,9 +351,8 @@ class Command {
 
 		const invite = this.client.options.invite;
 		return message.reply(stripIndents`
-			An error occurred while running the command: \`${err.name}: ${err.message}\`
+			An error occurred while running \`${err.name}\`
 			You shouldn't ever receive an error like this.
-			Please contact ${ownerList || 'the bot owner'}${invite ? ` in this server: ${invite}` : '.'}
 		`);
 	}
 
